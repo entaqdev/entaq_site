@@ -1,0 +1,4 @@
+baseURL = 'https://entaq.jp/'
+languageCode = 'ja-jp'
+title = 'My New entaq Site'
+theme = 'entaq2025'
