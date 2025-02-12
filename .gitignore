@@ -14,3 +14,10 @@ hugo.linux
 
 # Temporary lock file while building
 /.hugo_build.lock
+
+# Hugo の設定ファイル（機密情報を含む場合）
+config.toml
+config.yaml
+
+# 環境変数
+.env
