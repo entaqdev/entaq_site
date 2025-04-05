@@ -1,0 +1,22 @@
+{{ if .pages }}
+  <ul class="article-list">
+    {{ range .pages }}
+      <li class="article-list__item">
+        <a href="{{ .RelPermalink }}">
+          <div class="article-list__img">
+            {{ $args := dict
+              "context" .
+              "src" "0"
+              "alt" (printf "%s %s" "Cover image of" .LinkTitle)
+              "resize" "960x webp"
+            }}
+            {{ partial "img/img.html" $args }}
+          </div>
+          <h2 class="article-list__title">{{ .LinkTitle }}</h2>
+          <p class="article-list__date">{{ .Date }}</p>
+          <p class="article-list__summary">{{ .Summary }}</p>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}
