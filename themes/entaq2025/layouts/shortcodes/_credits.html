@@ -1,0 +1,22 @@
+{{ if $.Page.Params.credits }}
+  <ul>
+    {{ range $index, $credit := $.Page.Params.credits }}
+      {{ $name := default "" $credit.name }}
+      {{ $affiliation := cond ($credit.affiliation)
+        (printf " (%s)" $credit.affiliation) "" }}
+      {{ $role := default "" $credit.role }}
+      {{ $link := cond ($credit.link) 
+        (printf " <a href=\"%s\" target=\"_blank\" rel=\"external\">LINK</a>" $credit.link) "" }}
+      <li>
+        <dl>
+          <dt>{{ printf "%s" $role | safeHTML }}</dt>
+          <dd>
+            <ul>
+              <li>{{ printf "%s%s%s" $name $affiliation $link | safeHTML }}</li>
+            </ul>
+          </dd>
+        </dl>
+      </li>
+    {{ end }}
+  </ul>
+{{ end }}

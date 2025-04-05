@@ -1,0 +1,97 @@
+$color--red: #D52425;
+$color--orange: #FF4D00;
+$color--yellow: #FFC710;
+$color--mint: #A3FF0F;
+$color--green: #00C61A;
+$color--turquoise: #07E1DE;
+$color--cyan: #07E1DE;
+$color--sky: #3AC1FF;
+$color--blue: #085FFF;
+$color--marine: #1915FF;
+$color--violet: #6624FF;
+$color--purple: #8938F4;
+$color--magenta: #FF00F4;
+$color--pink: #FF1677;
+$color--white: #F1F1F1;
+$color--gray: #454545;
+$color--black: #1f1f1f;
+
+@mixin theme--light {
+  --color__bg__lv1: #{ $color--white };
+  --color__bg__lv2: #{ darken($color--white, 2%) };
+  --color__bg__lv3: #{ darken($color--white, 4%) };
+  --color__bg__lv4: #{ darken($color--white, 6%) };
+  --color__bg__lv5: #{ darken($color--white, 8%) };
+  --color__text__lv1: #{ $color--black };
+  --color__text__lv2: #{ lighten($color--black, 18%) };
+  --color__text__lv3: #{ lighten($color--black, 36%) };
+  --color__text__lv4: #{ lighten($color--black, 54%) };
+  --color__text__lv5: #{ lighten($color--black, 72%) };
+  --color__border__lv1: #{ lighten($color--black, 50%) };
+  --color__border__lv2: #{ lighten($color--black, 60%) };
+  --color__border__lv3: #{ lighten($color--black, 70%) };
+  --color__border__lv4: #{ lighten($color--black, 80%) };
+  --color__border__lv5: #{ lighten($color--black, 90%) };
+  --color__link__lv1: #{ $color--blue };
+}
+
+@mixin theme--dark {
+  --color__bg__lv1: #{ $color--black };
+  --color__bg__lv2: #{ lighten($color--black, 2%) };
+  --color__bg__lv3: #{ lighten($color--black, 4%) };
+  --color__bg__lv4: #{ lighten($color--black, 6%) };
+  --color__bg__lv5: #{ lighten($color--black, 8%) };
+  --color__text__lv1: #{ $color--white };
+  --color__text__lv2: #{ darken($color--white, 18%) };
+  --color__text__lv3: #{ darken($color--white, 36%) };
+  --color__text__lv4: #{ darken($color--white, 54%) };
+  --color__text__lv5: #{ darken($color--white, 72%) };
+  --color__border__lv1: #{ darken($color--white, 50%) };
+  --color__border__lv2: #{ darken($color--white, 60%) };
+  --color__border__lv3: #{ darken($color--white, 70%) };
+  --color__border__lv4: #{ darken($color--white, 90%) };
+  --color__border__lv5: #{ darken($color--white, 90%) };
+  --color__link__lv1: #{ $color--orange };
+}
+
+:root {
+  --color--red: #{ $color--red };
+  --color--orange: #{ $color--orange };
+  --color--yellow: #{ $color--yellow };
+  --color--mint: #{ $color--mint };
+  --color--green: #{ $color--green };
+  --color--turquoise: #{ $color--turquoise };
+  --color--cyan: #{ $color--cyan };
+  --color--sky: #{ $color--sky };
+  --color--blue: #{ $color--blue };
+  --color--marine: #{ $color--marine };
+  --color--violet: #{ $color--violet };
+  --color--purple: #{ $color--purple };
+  --color--magenta: #{ $color--magenta };
+  --color--pink: #{ $color--pink };
+  --color--white: #{ $color--white };
+  --color--gray: #{ $color--gray };
+  --color--black: #{ $color--black };
+
+  @include theme--light;
+}
+
+.theme--light {
+  @include theme--light;
+}
+
+.theme--dark {
+  @include theme--dark;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    @include theme--light;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include theme--dark;
+  }
+}

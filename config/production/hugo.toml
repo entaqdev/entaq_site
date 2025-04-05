@@ -1,0 +1,4 @@
+enableRobotsTXT = true
+printI18nWarnings = false
+printPathWarnings = false
+printUnusedTemplates = false

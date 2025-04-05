@@ -1,0 +1,34 @@
+{{- /*
+  figureショートコードの拡張版。
+  画像やキャプションなど、画像に関する一連のHTMLを表示する。
+*/}}
+
+{{ $src := (.Get "src") }}
+{{ $alt := (.Get "alt") }}
+{{ $loading := (.Get "loading") }}
+{{ $resize := (.Get "resize") }}
+{{ $class := (.Get "class") }}
+{{ $link := (.Get "link") }}
+{{ $target := (.Get "target") }}
+{{ $rel := (.Get "rel") }}
+{{ $title := (.Get "title") }}
+{{ $caption := (.Get "caption") }}
+{{ $attr := (.Get "attr") }}
+{{ $attrlink := (.Get "attrlink") }}
+
+{{ $args := dict
+  "src" $src
+  "alt" $alt
+  "loading" $loading
+  "resize" $resize
+  "class" $class
+  "link" $link
+  "target" $target
+  "rel" $rel
+  "title" $title
+  "caption" $caption
+  "attr" $attr
+  "attrlink" $attrlink
+}}
+
+{{ partial "img/figure.html" $args }}

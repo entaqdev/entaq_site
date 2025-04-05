@@ -1,0 +1,54 @@
+{{- /*
+  画像やキャプションなど、画像に関する一連のHTMLを表示する。
+
+  @arg {context} [.context=page] コンテクスト
+  @arg {string} [.src] 画像ファイルのパス
+  @arg {string} [.alt] 画像の代替文
+  @arg {string} [.loading] 画像の読み込み方法
+  @arg {string} [.resize] 画像の加工内容
+  @arg {string} [.class] figureタグのclass属性
+  @arg {string} [.link] 画像につけるリンクのURL
+  @arg {string} [.target] リンク押下時の挙動
+  @arg {string} [.rel] リンクの関係性
+  @arg {string} [.title] キャプションのタイトル
+  @arg {string} [.caption] キャプションの本文
+  @arg {string} [.attr] キャプションのリンクテキスト
+  @arg {string} [.attrlink] キャプションにつけるリンクのURL 
+*/ -}}
+
+{{- $context := default page .context -}}
+
+{{- if .src -}}
+  <figure class="{{- .class -}}">
+
+    {{- $args := dict
+      "context" $context
+      "src" .src
+      "alt" .alt
+      "loading" .loading
+      "resize" .resize
+    -}}
+
+    {{- if .link -}}
+      <a href="{{- .link -}}" target="{{- .target -}}" rel="{{- .rel -}}">
+        {{- partial "img/img.html" $args -}}
+      </a>
+    {{- else -}}
+      {{- partial "img/img.html" $args -}}
+    {{- end -}}
+
+    {{- if or .title (or .caption (and .attr .attrlink)) -}}
+      <figcaption>
+        {{- if .title -}}
+          <h4>{{- .title -}}</h4>
+        {{- end -}}
+        {{- if or .caption (and .attr .attrlink) -}}
+          {{- $caption := default "" .caption -}}
+          {{- $separator := cond (and .caption (and .attr .attrlink)) " " "" -}}
+          {{- $attribution := cond (and .attr .attrlink) (printf "<a href=\"%s\">%s</a>" .attrlink .attr) "" -}}
+          {{- printf "<p>%s%s%s</p>" $caption $separator $attribution | safeHTML -}}
+        {{- end -}}
+      </figcaption>
+    {{- end -}}
+  </figure>
+{{- end -}}

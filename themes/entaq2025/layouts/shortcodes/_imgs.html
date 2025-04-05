@@ -1,0 +1,37 @@
+{{- /*
+  front matterで定義した[[params.images]]を引数の内容に応じてimgで表示する。
+  startやendよりもlistが優先される。
+
+  @arg {int} [start] 表示する画像の開始位置
+  @arg {int} [end] 表示する画像の終了位置
+  @arg {array} [list] 表示する画像のリスト
+*/}}
+
+{{- /* [[params.images]]を取得する */}}
+{{ $images := $.Page.Params.images }}
+{{ $imagesLastIndexNum := add ($images | len) -1 }}
+
+{{- /* listが与えられていない場合の開始位置 */}}
+{{ $start := string (.Get "start") }}
+{{ $start = default "0" $start }}
+
+{{- /* listが与えられていない場合の終了位置 */}}
+{{ $end := string (.Get "end") }}
+{{ $end = default $imagesLastIndexNum $end }}
+
+{{- /* [[params.images]]の中から表示するリストを生成する */}}
+{{ $list := .Get "list" }}
+{{ $list = cond $list (split $list ",") (seq $start $end) }}
+
+{{ range $list }}
+  {{ $image := index $images (int .) }}
+  {{ $args := dict
+    "src" (default (string .) $image.src)
+    "alt" $image.alt
+    "loading" $image.loading
+    "resize" (default site.Params.imageResize $image.resize)
+  }}
+  
+  {{ partial "img/img.html" $args }}
+{{ end }}
+

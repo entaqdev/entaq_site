@@ -1,0 +1,30 @@
+{{- /*
+  srcset用にresizeの値をn倍した値を返す。
+
+  @arg {string} [.resize] 画像の加工内容
+  @arg {int} [.ratio=2] n倍する値
+*/}}
+
+{{- $resize := .resize -}}
+{{- $ratio := default 2 .ratio -}}
+
+{{- range (findRE `(\d*)x(\d*)` $resize) -}}
+  {{- $match := . -}}
+
+  {{- $pattern := `(\d*)` -}}
+  {{- $width := index (findRE $pattern $match) 0 -}}
+  {{- $height := index (findRE $pattern $match) 1 -}}
+
+  {{- if $width -}}
+    {{- $width = string (mul (int $width) $ratio) -}}
+  {{- end -}}
+
+  {{- if $height -}}
+    {{- $height = string (mul (int $height) $ratio) -}}
+  {{- end -}}
+
+  {{- $replacement := printf "%sx%s" $width $height -}}
+  {{- $resize = replace $resize $match $replacement -}}
+{{- end -}}
+
+{{- return $resize -}}

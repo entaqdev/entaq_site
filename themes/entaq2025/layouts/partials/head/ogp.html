@@ -1,0 +1,30 @@
+{{ $pageTitle := partial "util/page-title.html" . }}
+{{ $ogType := partial "util/og-type.html" . }}
+{{ $url := .Permalink }}
+{{ $coverImage := partial "function/get-img-permalink.html" (dict "src" "0" "resize" "1920x1080 png") }}
+{{ $siteName := site.Title }}
+{{ $description := default site.Params.description .Description }}
+{{ $languages := site.Languages }}
+
+<meta property="og:title" content="{{ $pageTitle }}" />
+<meta property="og:type" content="{{ $ogType }}" />
+<meta property="og:url" content="{{ $url }}" />
+<meta property="og:image" content="{{ $coverImage }}" />
+<meta property="og:site_name" content="{{ $siteName }}" />
+<meta property="og:description" content="{{ $description }}"/>
+{{- $ogLocale := "og:locale" }}
+{{- if gt ($languages | len) 1 }}
+  {{- $ogLocale := "og:locale:alternate" }}
+{{- end }}
+{{- range $languages }}
+  {{- $languageCode := replace .LanguageCode "-" "_" }}
+  {{ (printf "<meta property=\"%s\" content=\"%s\" />" $ogLocale $languageCode) | safeHTML }}
+{{- end }}
+
+<meta property="fb:app_id" content="{{ site.Params.facebook.app.id }}" />
+
+<meta name="twitter:card" content="{{ site.Params.twitter.card }}">
+<meta name="twitter:site" content="{{ site.Params.twitter.id }}">
+<meta name="twitter:title" content="{{ site.Params.ogp.title }}">
+<meta name="twitter:description" content="{{ $description }}">
+<meta name="twitter:image" content="{{ $coverImage }}">

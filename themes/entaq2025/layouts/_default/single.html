@@ -1,10 +1,24 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
+  <article>
+    <h1>{{ .Title }}</h1>
 
-  {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-  {{ $dateHuman := .Date | time.Format ":date_long" }}
-  <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-
-  {{ .Content }}
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+    {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+    {{ $dateHuman := .Date | time.Format ":date_long" }}
+    <time datetime="{{ $dateMachine }}">Date: {{ $dateHuman }}</time><br>
+  
+    {{ $dateMachine := .PublishDate | time.Format "2006-01-02T15:04:05-07:00" }}
+    {{ $dateHuman := .PublishDate | time.Format ":date_long" }}
+    <time datetime="{{ $dateMachine }}">PublishDate: {{ $dateHuman }}</time><br>
+  
+    {{ $dateMachine := .ExpiryDate | time.Format "2006-01-02T15:04:05-07:00" }}
+    {{ $dateHuman := .ExpiryDate | time.Format ":date_long" }}
+    <time datetime="{{ $dateMachine }}">ExpiryDate: {{ $dateHuman }}</time><br>
+  
+    {{ $dateMachine := .Lastmod | time.Format "2006-01-02T15:04:05-07:00" }}
+    {{ $dateHuman := .Lastmod | time.Format ":date_long" }}
+    <time datetime="{{ $dateMachine }}">Lastmod: {{ $dateHuman }}</time><br>
+  
+    {{ .Content }}
+    {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+  </article>
 {{ end }}

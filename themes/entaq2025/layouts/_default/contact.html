@@ -1,0 +1,9 @@
+{{ define "main" }}
+  <div class="block block--contact-form">
+    <div class="block__inner">
+      <h1 class="block__title block__title--h1">{{ .Title }}:</h1>
+      {{ .Content }}
+      {{ partial "contact-form.html" . }}
+    </div>
+  </div>
+{{ end }}

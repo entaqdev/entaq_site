@@ -1,4 +1,2 @@
-baseURL = 'https://entaq.jp/'
-languageCode = 'ja-jp'
-title = 'My New entaq Site'
+title = 'entaq'
 theme = 'entaq2025'

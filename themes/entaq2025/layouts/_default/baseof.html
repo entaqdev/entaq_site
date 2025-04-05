@@ -3,15 +3,17 @@
 <head>
   {{ partial "head.html" . }}
 </head>
-<body>
-  <header>
+<body class="layout layout--{{ .Layout }}">
+  <header class="header">
     {{ partial "header.html" . }}
   </header>
-  <main>
+  <main class="main">
     {{ block "main" . }}{{ end }}
   </main>
-  <footer>
+  {{- /*
+  <footer class="footer">
     {{ partial "footer.html" . }}
   </footer>
+  */}}
 </body>
 </html>

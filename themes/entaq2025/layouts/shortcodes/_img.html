@@ -1,0 +1,18 @@
+{{- /*
+  画像を表示する。
+  resizeに応じて画像を加工する。
+*/}}
+
+{{ $src := (.Get "src") }}
+{{ $alt := (.Get "alt") }}
+{{ $loading := (.Get "loading") }}
+{{ $resize := (.Get "resize") }}
+
+{{ $args := dict
+  "src" $src
+  "alt" $alt
+  "loading" $loading
+  "resize" $resize
+}}
+
+{{ partial "img/img.html" $args }}

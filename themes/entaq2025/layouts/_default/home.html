@@ -1,7 +1,24 @@
 {{ define "main" }}
-  {{ .Content }}
-  {{ range site.RegularPages }}
-    <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-    {{ .Summary }}
+  <div class="block block--hero">
+    <div class="block__inner">
+      <figure class="hero">
+        <div class="hero__img">
+          <div class="hero__img__bg"></div>
+        </div>
+        <figcaption class="hero__caption">
+          <h4>entaq: Enhancing you with Technology, Arts, and Quality.</h4>
+          <p>entaq was established at 2012. The naming come from Japanese sounds "Entaku (円卓 = round table)". We have been working on many kind of projects with our skills learned in the university. It has not changing the fun through making is our source of motivation.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+
+  {{ if .Content }}
+    <div class="block block--home-content">
+      <div class="block__inner">
+        home content
+        {{ .Content }}
+      </div>
+    </div>
   {{ end }}
 {{ end }}

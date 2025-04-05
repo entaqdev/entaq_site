@@ -1,0 +1,25 @@
+.layout--about {
+  .block {
+    &__inner {
+      display: flex;
+      flex-direction: column;
+      gap: var(--base-gap);
+    }
+
+    &__title {
+      font-size: var(--font-size__lv1);
+      font-weight: 600;
+      line-height: 1;
+      color: var(--color__text__lv5);
+    }
+
+    #entaq_logo {
+      display: inline;
+      height: 2.15ex;
+      margin-right: -0.2em;
+      fill: var(--color__text__lv1);
+      position: relative;
+      top: 0.55ex;
+    }
+  }
+}

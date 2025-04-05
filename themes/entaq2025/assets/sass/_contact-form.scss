@@ -1,0 +1,60 @@
+.contact-form {
+  display: flex;
+  flex-direction: column;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid var(--color__border__lv3);
+
+    &:last-of-type {
+      border-bottom: 1px solid var(--color__border__lv3);
+    }
+  }
+
+  label {
+    flex: 1 0 0;
+    font-size: var(--font-size__lv7);
+    color: var(--color__text__lv1);
+
+    span {
+      font-size: var(--font-size__lv10);
+      color: var(--color__text__lv3);
+    }
+  }
+
+  input,
+  textarea {
+    flex: 2 0 0;
+    border: none;
+    background-color: var(--color__bg__lv2);
+    color: var(--color__text__lv1);
+    font-size: var(--font-size__lv7);
+    padding: var(--base-padding);
+
+    &::placeholder {
+      color: var(--color__text__lv4);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  button {
+    width: 100%;
+    padding: var(--base-padding);
+    font-size: var(--font-size__lv7);
+    color: var(--color__text__lv1);
+    background-color: var(--color__bg__lv2);
+    border: none;
+    transition: background-color 0.25s ease;
+
+    &:hover {
+      // color: var(--color__text__lv5);
+      background-color: var(--color__bg__lv5);
+      cursor: pointer;
+    }
+  }
+}

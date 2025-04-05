@@ -1,0 +1,50 @@
+.article-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  
+  &__item {
+
+  }
+
+  &__img {
+
+  }
+
+  &__title {
+
+  }
+
+
+  &__date {
+
+  }
+
+  &__summary {
+
+  }
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  align-items: stretch;
+  margin: 0;
+  padding: 0;
+
+  &__item {
+    display: flex;
+    align-items: stretch;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 0 0 calc(var(--base-padding) * 2);
+      text-align: right;
+      font-size: px2rem(24px);
+      line-height: 1;
+      color: var(--color__text__lv1);
+    }
+  }
+}

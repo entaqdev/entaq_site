@@ -1,0 +1,9 @@
+[google]
+  analytics.id = 'G-DDDDDDDDD'
+
+[facebook]
+  app.id = ''
+
+[twitter]
+  id = ''
+  card = 'summary_large_image'

@@ -1,0 +1,96 @@
+$base-padding--pc: px2rem($base-size * 8);
+$base-padding--sp: px2rem($base-size * 4);
+$base-radius--pc: px2rem($base-size * 2);
+$base-radius--sp: px2rem($base-size * 1);
+$base-gap--pc: px2rem($base-size * 8);
+$base-gap--sp: px2rem($base-size * 4);
+$font-size__lv1--pc: px2rem($base-size * 24);
+$font-size__lv2--pc: px2rem($base-size * 18);
+$font-size__lv3--pc: px2rem($base-size * 14);
+$font-size__lv4--pc: px2rem($base-size * 10);
+$font-size__lv5--pc: px2rem($base-size * 8);
+$font-size__lv6--pc: px2rem($base-size * 6);
+$font-size__lv7--pc: px2rem($base-size * 4);
+$font-size__lv8--pc: px2rem($base-size * 3.5);
+$font-size__lv9--pc: px2rem($base-size * 3);
+$font-size__lv10--pc: px2rem($base-size * 2.5);
+$font-size__lv1--sp: px2rem($base-size * 12);
+$font-size__lv2--sp: px2rem($base-size * 10);
+$font-size__lv3--sp: px2rem($base-size * 8);
+$font-size__lv4--sp: px2rem($base-size * 7);
+$font-size__lv5--sp: px2rem($base-size * 6);
+$font-size__lv6--sp: px2rem($base-size * 5);
+$font-size__lv7--sp: px2rem($base-size * 4);
+$font-size__lv8--sp: px2rem($base-size * 3.5);
+$font-size__lv9--sp: px2rem($base-size * 3);
+$font-size__lv10--sp: px2rem($base-size * 2.5);
+
+@mixin var--pc {
+  --base-padding: #{ $base-padding--pc };
+  --base-radius: #{ $base-radius--pc};
+  --base-gap: #{ $base-gap--pc };
+  --font-size__lv1: #{ $font-size__lv1--pc };
+  --font-size__lv2: #{ $font-size__lv2--pc };
+  --font-size__lv3: #{ $font-size__lv3--pc };
+  --font-size__lv4: #{ $font-size__lv4--pc };
+  --font-size__lv5: #{ $font-size__lv5--pc };
+  --font-size__lv6: #{ $font-size__lv6--pc };
+  --font-size__lv7: #{ $font-size__lv7--pc };
+  --font-size__lv8: #{ $font-size__lv8--pc };
+  --font-size__lv9: #{ $font-size__lv9--pc };
+  --font-size__lv10: #{ $font-size__lv10--pc };
+}
+
+@mixin var--tb {
+  --base-padding: #{ $base-padding--pc };
+  --base-radius: #{ $base-radius--pc};
+  --base-gap: #{ $base-gap--pc };
+  --font-size__lv1: #{ $font-size__lv1--pc };
+  --font-size__lv2: #{ $font-size__lv2--pc };
+  --font-size__lv3: #{ $font-size__lv3--pc };
+  --font-size__lv4: #{ $font-size__lv4--pc };
+  --font-size__lv5: #{ $font-size__lv5--pc };
+  --font-size__lv6: #{ $font-size__lv6--pc };
+  --font-size__lv7: #{ $font-size__lv7--pc };
+  --font-size__lv8: #{ $font-size__lv8--pc };
+  --font-size__lv9: #{ $font-size__lv9--pc };
+  --font-size__lv10: #{ $font-size__lv10--pc };
+}
+
+@mixin var--sp {
+  --base-padding: #{ $base-padding--sp };
+  --base-radius: #{ $base-radius--sp };
+  --base-gap: #{ $base-gap--sp };
+  --font-size__lv1: #{ $font-size__lv1--sp };
+  --font-size__lv2: #{ $font-size__lv2--sp };
+  --font-size__lv3: #{ $font-size__lv3--sp };
+  --font-size__lv4: #{ $font-size__lv4--sp };
+  --font-size__lv5: #{ $font-size__lv5--sp };
+  --font-size__lv6: #{ $font-size__lv6--sp };
+  --font-size__lv7: #{ $font-size__lv7--sp };
+  --font-size__lv8: #{ $font-size__lv8--sp };
+  --font-size__lv9: #{ $font-size__lv9--sp };
+  --font-size__lv10: #{ $font-size__lv10--sp };
+}
+
+:root {
+  @include var--pc;
+}
+
+@media (max-width: $breakpoint__sp--max) {
+  :root {
+    @include var--sp;
+  }
+}
+
+@media (min-width: $breakpoint__tb--min) and (max-width: $breakpoint__tb--max) {
+  :root {
+    @include var--tb;
+  }
+}
+
+@media (min-width: $breakpoint__pc--min) {
+  :root {
+    @include var--pc;
+  }
+}

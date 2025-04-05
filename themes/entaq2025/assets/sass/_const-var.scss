@@ -1,0 +1,14 @@
+$root-font-size: 10px;
+$root-line-height: 1.75;
+
+$base-size: 4px;
+
+$design-width--sp: 375px;
+$design-width--tb: 768px;
+$design-width--pc: 1440px;
+
+$breakpoint__sp--min: 320px;
+$breakpoint__sp--max: 576px;
+$breakpoint__tb--min: $breakpoint__sp--max + 1px;
+$breakpoint__tb--max: 1280px;
+$breakpoint__pc--min: $breakpoint__tb--max + 1px;

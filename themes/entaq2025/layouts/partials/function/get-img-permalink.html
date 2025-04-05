@@ -1,0 +1,53 @@
+{{- /*
+  画像のパーマリンクを取得する。
+
+  @arg {context} [.context] コンテクスト
+  @arg {string} [.src] 画像のファイルパス
+  @arg {string} [.resize] 画像の加工内容
+
+  @return {string} 画像のパーマリンク
+*/ -}}
+
+{{- $context := .context -}}
+{{- $resource := false -}}
+{{- $permalink := false -}}
+{{- $path := default "" .src -}}
+{{- $basePath := replaceRE "\\.[^.]+$" "" $path -}}
+{{- $baseName := replaceRE "^.*/" "" $basePath -}}
+{{- $pathPattern := printf "%s.*" $basePath -}}
+
+{{- /* 画像のコンテクストを取得する */ -}}
+
+{{- with $context.Resources.Get $path -}}
+  {{- $resource = . -}}
+{{- else with $context.Resources.GetMatch $pathPattern -}}
+  {{- $resource = . -}}
+{{- else with resources.Get $path -}}
+  {{- $resource = . -}} {{- /* global resourceからも探す */}}
+{{- else with resources.GetMatch $pathPattern -}}
+  {{- $resource = . -}} {{- /* global resourceからも探す */}}
+{{- else -}}
+  {{- if eq $baseName "0" -}}
+    {{- with resources.Get site.Params.coverImage -}}
+      {{- $resource = . -}} {{- /* 見つからない場合はデフォルト画像を返す */}}
+    {{- end -}}
+  {{- else -}}
+    {{- with resources.Get site.Params.noImage -}}
+      {{- $resource = . -}} {{- /* 見つからない場合はデフォルト画像を返す */}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{- /* 画像のパーマリンクを取得する */ -}}
+{{- if $resource -}}
+  {{- if .resize -}}
+    {{- /* resizeする */ -}}
+    {{- with $resource.Resize .resize -}}
+      {{- $permalink = .RelPermalink -}}
+    {{- end -}}
+  {{- else -}}
+    {{- $permalink = $resource.RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+
+{{- return $permalink -}}

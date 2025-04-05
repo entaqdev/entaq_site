@@ -1,0 +1,8 @@
+{{- if eq .CurrentSection "about" -}}
+  {{- printf "profile" -}}
+{{- else if or (eq .CurrentSection "works") (eq .CurrentSection "posts") -}}
+  {{- printf "article" -}}
+{{- else -}}
+  {{- printf "website" -}}
+{{- end -}}
+

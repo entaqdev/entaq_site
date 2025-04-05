@@ -1,0 +1,51 @@
+{{- /*
+  画像を表示する。
+  resizeに応じて画像を加工する。
+
+  @arg {context} [.context=page] コンテクスト
+  @arg {string} [.src] 画像のファイルパス
+  @arg {string} [.alt="Image"] 画像の代替文
+  @arg {string} [.loading="lazy"] 画像の読み込み方法(eager,lazy,auto)
+  @arg {string} [.resize] 画像の加工内容
+*/ -}}
+
+{{- $context := default page .context -}}
+{{- $loading := default "lazy" .loading -}}
+{{- $alt := default "" .alt -}}
+{{- $resize2x := partial "function/get-resize-by-ratio" (dict "resize" .resize "ratio" 2) -}}
+{{- $resize3x := partial "function/get-resize-by-ratio" (dict "resize" .resize "ratio" 3) -}}
+
+{{- $permalink1x := partial "function/get-img-permalink.html" (dict
+  "context" $context
+  "src" .src
+  "resize" .resize
+) -}}
+{{- $permalink2x := partial "function/get-img-permalink.html" (dict
+  "context" $context
+  "src" .src
+  "resize" $resize2x
+) -}}
+{{- $permalink3x := partial "function/get-img-permalink.html" (dict
+  "context" $context
+  "src" .src
+  "resize" $resize2x
+) -}}
+
+{{- $attrLoading := printf " loading=\"%s\"" $loading -}}
+{{- $attrAlt := printf " alt=\"%s\"" $alt -}}
+{{- $attrSrc := "" -}}
+{{- $attrSrcset := "srcset=\"" -}}
+
+{{- if $permalink1x -}}
+  {{- $attrSrc = printf " src=\"%s\"" $permalink1x -}}
+  {{- $attrSrcset = printf "%s%s 1x" $attrSrcset $permalink1x -}}
+{{- end -}}
+{{- if $permalink2x -}}
+  {{- $attrSrcset = printf "%s, %s 2x" $attrSrcset $permalink2x -}}
+{{- end -}}
+{{- if $permalink3x -}}
+  {{- $attrSrcset = printf "%s, %s 3x" $attrSrcset $permalink3x -}}
+{{- end -}}
+{{- $attrSrcset = printf "%s\"" $attrSrcset -}}
+
+{{- printf "<img%s%s%s%s>" $attrLoading $attrAlt $attrSrc $attrSrcset | safeHTML -}}

@@ -1,0 +1,24 @@
+#[[main]]
+#  name = 'Works'
+#  pageRef = '/works'
+#  weight = 10
+
+[[main]]
+  name = 'About'
+  pageRef = '/about'
+  weight = 20
+
+[[main]]
+  name = 'Contact'
+  pageRef = '/contact'
+  weight = 30
+
+[[sub]]
+  name = 'Tags'
+  pageRef = '/tags'
+  weight = 40
+
+[[sub]]
+  name = 'Categories'
+  pageRef = '/categories'
+  weight = 40

@@ -1,0 +1,25 @@
+description = 'デフォルトの概要文です。'
+coverImage = 'images/cover-image.png'
+noImage = 'images/no-image.png'
+imageResize = "192x webp"
+
+[author]
+  name = 'entaq'
+  established = '2012'
+  zipCode = ''
+  country = ''
+  address = ''
+  googleMapUrl = ''
+  tel = ''
+  email = ''
+  website = ''
+
+[google]
+  analytics.id = 'G-ddddddddd'
+
+[facebook]
+  app.id = ''
+
+[twitter]
+  id = ''
+  card = 'summary_large_image'

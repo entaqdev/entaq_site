@@ -1,0 +1,35 @@
+disableCSS = true
+disableHTML = true
+disableJS = true
+disableJSON = true
+disableSVG = true
+disableXML = true
+minifyOutput = true
+[tdewolff]
+  [tdewolff.css]
+    inline = true
+    keepCSS2 = true
+    precision = 0
+  [tdewolff.html]
+    keepComments = true
+    keepConditionalComments = true
+    keepDefaultAttrVals = true
+    keepDocumentTags = true
+    keepEndTags = true
+    keepQuotes = true
+    keepSpecialComments = true
+    keepWhitespace = true
+    templateDelims = ['', '']
+  [tdewolff.js]
+    keepVarNames = true
+    precision = 0
+    version = 2022
+  [tdewolff.json]
+    keepNumbers = true
+    precision = 0
+  [tdewolff.svg]
+    inline = true
+    keepComments = true
+    precision = 0
+  [tdewolff.xml]
+    keepWhitespace = true
