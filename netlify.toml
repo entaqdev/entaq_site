@@ -13,3 +13,8 @@ command = """\
   export PATH=/opt/build/repo/dart-sass:$PATH && \
   hugo --gc --minify \
   """
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
