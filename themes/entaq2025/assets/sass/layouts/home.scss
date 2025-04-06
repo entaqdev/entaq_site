@@ -1,4 +1,8 @@
 .layout--home {
+  .header {
+    position: static;
+  }
+
   .block {
     &--hero {
       flex: 1 0 0;
