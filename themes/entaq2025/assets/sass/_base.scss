@@ -15,6 +15,7 @@ body {
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-between;
+  height: 100dvh;
   color: var(--color__text__lv1);
   background-color: var(--color__bg__lv1);
 }
