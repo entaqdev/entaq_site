@@ -18,6 +18,26 @@ command = """\
   from = "/*"
   to = "/index.html"
   status = 200
+[[redirects]]
+  from = "https://entaq.org/*"
+  to = "https://entaq.net:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://www.entaq.org/*"
+  to = "https://entaq.net:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://entaq.jp/*"
+  to = "https://entaq.net:splat"
+  status = 301
+  force = true
+[[redirects]]
+  from = "https://www.entaq.jp/*"
+  to = "https://entaq.net:splat"
+  status = 301
+  force = true
 
 [[headers]]
   for = "/*"
