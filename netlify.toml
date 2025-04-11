@@ -15,10 +15,6 @@ command = """\
   """
 
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-[[redirects]]
   from = "https://entaq.org/*"
   to = "https://entaq.net:splat"
   status = 301
@@ -42,7 +38,6 @@ command = """\
   from = "/*"
   to = "/errors/404/"
   status = 404
-
 
 [[headers]]
   for = "/*"
