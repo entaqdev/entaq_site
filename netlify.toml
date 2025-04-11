@@ -38,6 +38,11 @@ command = """\
   to = "https://entaq.net:splat"
   status = 301
   force = true
+[[redirects]]
+  from = "/*"
+  to = "/errors/404/"
+  status = 404
+
 
 [[headers]]
   for = "/*"

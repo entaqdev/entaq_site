@@ -1,0 +1,13 @@
+{{ define "main" }}
+  <article class="block block--error">
+    <section class="block__inner">
+      <h1 class="block__title block__title--h1">{{ .Title }}:</h1>
+      {{ .Content }}
+      <p>
+        <a href="{{ .Site.Home.RelPermalink }}">
+          Return to the home page
+        </a>
+      </p>
+    </section>
+  </article>
+{{ end }}
